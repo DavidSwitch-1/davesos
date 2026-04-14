@@ -255,11 +255,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
       <span style={{ fontSize: 14 }}>⚙️</span>
       <span style={{ fontSize: 7, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Settings</span>
     </button>
-    <button onClick={signOut} title="Sign out"
-      style={{ background: '#1A1A2E', border: '1px solid #2A2A3A', borderRadius: 8, color: '#9A9AB0', fontSize: 11, cursor: 'pointer', padding: '6px 8px', margin: '4px', fontWeight: 600, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
-      <span style={{ fontSize: 14 }}>⏻</span>
-      <span style={{ fontSize: 7, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Out</span>
-    </button>
+    
   </div>
 )}
 
