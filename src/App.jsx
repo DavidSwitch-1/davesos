@@ -102,7 +102,6 @@ useEffect(() => {
   );
 
 if (!session) return <AuthScreen onAuth={setSession} />;
-if (session && !loading) return <OnboardingWrapper session={session} />;
 return <AppRouter session={session} />;
 }
 
