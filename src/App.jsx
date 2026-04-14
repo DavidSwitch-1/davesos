@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 import { supabase, signOut } from './lib/supabase';
 import { useAppData } from './hooks/useAppData';
 import { classify, QUADS, QUAD_ORDER, greet, fmtDate, fmtTime, todayKey, mornQ, checkinReply, localCoachReply } from './lib/utils';
@@ -119,7 +118,12 @@ function Dashboard({ session }) {
     return saved ? saved === 'dark' : true;
   });
   const [showSettings, setShowSettings] = useState(false);
-
+const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+useEffect(() => {
+  const handleResize = () => setIsMobile(window.innerWidth < 768);
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
   const bizA = settings.biz_a || 'Swi-tch';
   const bizB = settings.biz_b || 'Throwdown';
 
