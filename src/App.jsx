@@ -191,7 +191,7 @@ if (showSettings) {
     setChatIn(''); setChatLoading(true);
     const userMsg = { role: 'user', content: msg };
     setChat(c => [...c, userMsg]);
-buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations, energyLog, settings)
+const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations, energyLog, settings);
     const history = [...chat, userMsg].slice(-8);
     const reply = await callClaude(history, system) || localCoachReply(msg, bizA, bizB, tasks, delegations);
     setChat(c => [...c, { role: 'assistant', content: reply }]);
