@@ -73,7 +73,10 @@ function Dashboard({ session }) {
   const [kick,         setKick]         = useState({ loaded: false, q: '', a: '', done: false });
   const [hypAlarm,     setHypAlarm]     = useState(null);
   const [hypFired,     setHypFired]     = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => {
+  const saved = localStorage.getItem('davesos_theme');
+  return saved ? saved === 'dark' : true;
+});
   const [newRadar,     setNewRadar]     = useState({ text: '', owner: '', note: '', biz: 'General' });
 
   useEffect(() => {
