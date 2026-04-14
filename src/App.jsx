@@ -162,7 +162,6 @@ if (showSettings) {
     const ci = checkins.find(c => new Date(c.created_at).toISOString().slice(0, 10) === dk);
     return { score: ci?.score || 0, label: d.toLocaleDateString('en-GB', { weekday: 'short' }) };
   });
-  const isMobile = window.innerWidth < 768;
   const bizColors = { [bizA]: C.purple, [bizB]: C.green, Personal: C.violet };
 
   async function addTask(taskData) {
@@ -218,6 +217,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
   }
 
 
+  const isMobile = window.innerWidth < 768;
   if (tab === 'focus-mode' && focusTask) {
     return <FocusMode task={focusTask} bizA={bizA} bizB={bizB}
       onExit={() => { setFocusTask(null); setTab('home'); }}
