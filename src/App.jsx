@@ -101,7 +101,8 @@ useEffect(() => {
     </div>
   );
 
-  if (!session) return <AuthScreen onAuth={setSession} />;
+if (!session) return <AuthScreen onAuth={setSession} />;
+if (session && !loading) return <OnboardingWrapper session={session} />;
   return <Dashboard session={session} />;
 }
 
