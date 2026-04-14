@@ -234,6 +234,11 @@ function Dashboard({ session }) {
           </button>
         ))}
         <div style={{ flex: 1 }} />
+        <button onClick={() => setShowSettings(true)} title="Settings"
+  style={{ background: 'none', border: 'none', color: C.textFaint,
+    fontSize: 16, cursor: 'pointer', padding: '8px' }}>
+  ⚙️
+</button>
         <button onClick={signOut} title="Sign out" style={{ background: 'none', border: 'none', color: C.textFaint, fontSize: 11, cursor: 'pointer', padding: '8px' }}>⏻</button>
       </div>
 
