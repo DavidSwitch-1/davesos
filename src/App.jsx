@@ -26,7 +26,15 @@ export default function App() {
   const [loading,  setLoading]  = useState(true);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
+ const start = Date.now();
+supabase.auth.getSession().then(({ data }) => {
+  const elapsed = Date.now() - start;
+  const remaining = Math.max(0, 1500 - elapsed);
+  setTimeout(() => {
+    setSession(data.session);
+    setLoading(false);
+  }, remaining);
+});
       setSession(data.session);
       setLoading(false);
     });
