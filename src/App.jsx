@@ -119,6 +119,9 @@ function Dashboard({ session }) {
   });
   const [showSettings, setShowSettings] = useState(false);
 
+  if (showSettings) {
+  return <SettingsScreen settings={settings} onSave={data.saveSettings} onClose={() => setShowSettings(false)} />;
+}
   const bizA = settings.biz_a || 'Swi-tch';
   const bizB = settings.biz_b || 'Throwdown';
 
