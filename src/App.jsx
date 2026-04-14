@@ -107,6 +107,23 @@ return <AppRouter session={session} />;
 }
 
 function Dashboard({ session }) {
+  function AppRouter({ session }) {
+  const userId = session.user.id;
+  const data = useAppData(userId);
+  const { settings, loading } = data;
+
+  async function handleOnboardingComplete(prefs) {
+    await data.saveSettings(prefs);
+  }
+
+  if (loading) return null;
+
+  if (!settings.onboarded) {
+    return <OnboardingScreen onComplete={handleOnboardingComplete} />;
+  }
+
+  return <Dashboard session={session} />;
+}
   const userId = session.user.id;
   const data = useAppData(userId);
   const { tasks, wins, radar, delegations, checkins, energyLog, settings, focusStats } = data;
