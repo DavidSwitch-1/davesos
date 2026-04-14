@@ -291,7 +291,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
           </div>
         </div>
 
-        <div style={{ flex: 1, overflowY: 'auto', padding: '18px 20px' }}>
+<div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px 12px 80px' : '18px 20px' }}>
 
           {tab === 'home' && (
             <div style={{ maxWidth: 700, margin: '0 auto' }}>
@@ -774,7 +774,32 @@ function RadarTicker({ radar, bizColors, onGoToRadar }) {
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
   const items = radar.filter(r => !r.done);
-
+{isMobile && (
+  <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, height: 60,
+    background: C.sidebar, borderTop: '1px solid ' + C.border,
+    display: 'flex', alignItems: 'center', justifyContent: 'space-around',
+    padding: '0 4px', zIndex: 100 }}>
+    {NAV.slice(0, 8).map(n => (
+      <button key={n.id} onClick={() => setTab(n.id)}
+        style={{ background: 'none', border: 'none', display: 'flex',
+          flexDirection: 'column', alignItems: 'center', gap: 2,
+          padding: '6px 4px', cursor: 'pointer', flex: 1,
+          color: tab === n.id ? C.purple : C.textFaint }}>
+        <span style={{ fontSize: 16 }}>{n.icon}</span>
+        <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '0.04em',
+          textTransform: 'uppercase' }}>{n.label}</span>
+      </button>
+    ))}
+    <button onClick={() => setShowSettings(true)}
+      style={{ background: 'none', border: 'none', display: 'flex',
+        flexDirection: 'column', alignItems: 'center', gap: 2,
+        padding: '6px 4px', cursor: 'pointer', flex: 1, color: C.textFaint }}>
+      <span style={{ fontSize: 16 }}>⚙️</span>
+      <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '0.04em',
+        textTransform: 'uppercase' }}>More</span>
+    </button>
+  </div>
+)}
   useEffect(() => {
     if (items.length <= 1) return;
     const interval = setInterval(() => {
