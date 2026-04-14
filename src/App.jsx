@@ -61,10 +61,10 @@ export default function App() {
       </div>
       <div style={{ fontSize: 32, fontWeight: 800, color: '#ffffff',
         letterSpacing: '-0.02em', marginBottom: 6, textAlign: 'center',
-        textShadow: '0 0 30px #6C63FF88' }}>Dave's OS</div>
+        textShadow: '0 0 30px #6C63FF88' }}>zoned</div>
       <div style={{ fontSize: 11, color: '#6C63FF', letterSpacing: '0.25em',
         textTransform: 'uppercase', fontWeight: 700, marginBottom: 40, textAlign: 'center' }}>
-        ADHD Organisation Loading
+        Getting you in the zone..
       </div>
       <div style={{ width: 200, height: 2, background: '#1E1E2E', borderRadius: 99, overflow: 'hidden' }}>
         <div style={{ height: '100%', background: 'linear-gradient(90deg, #6C63FF, #8B5CF6)',
@@ -223,7 +223,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
     const userMsg = 'Tasks:\n' + (topTasks || 'None') + '\n\nWins:\n' + (wins.slice(0, 3).map(w => '- ' + w.text).join('\n') || 'None') + '\n\nFocus: ' + focusStats.sessions + ' sessions.\nStreak: ' + checkins.length + ' check-ins.';
     const reply = await callClaude([{ role: 'user', content: userMsg }], system, 200);
     setBrief({ text: reply || 'Focus on your top task. Protect 9-12. One thing at a time.', loading: false });
-    if (reply) localStorage.setItem('davesos_brief_' + todayKey(), reply);
+    if (reply) localStorage.setItem('zoned_brief_' + todayKey(), reply);
   }
   async function submitCheckin() {
     const res = checkinReply(ciScore, done.length);
