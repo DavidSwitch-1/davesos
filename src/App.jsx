@@ -7,6 +7,7 @@ import { S, C, themes } from './lib/styles';
 import AuthScreen from './components/AuthScreen';
 import TasksTab from './components/TasksTab';
 import FocusMode from './components/FocusMode';
+import OnboardingScreen from './components/OnboardingScreen';
 
 const NAV = [
   { id: 'home',     icon: '⌂', label: 'Home'      },
