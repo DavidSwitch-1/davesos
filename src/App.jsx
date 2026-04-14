@@ -119,9 +119,6 @@ function Dashboard({ session }) {
   });
   const [showSettings, setShowSettings] = useState(false);
 
-  if (showSettings) {
-  return <SettingsScreen settings={settings} onSave={data.saveSettings} onClose={() => setShowSettings(false)} />;
-}
   const bizA = settings.biz_a || 'Swi-tch';
   const bizB = settings.biz_b || 'Throwdown';
 
@@ -144,6 +141,9 @@ function Dashboard({ session }) {
 
   if (!data.loading && !settings.onboarded) {
     return <OnboardingScreen onComplete={(prefs) => data.saveSettings(prefs)} />;
+    if (showSettings) {
+  return <SettingsScreen settings={settings} onSave={data.saveSettings} onClose={() => setShowSettings(false)} />;
+}
   }
 
   const now = Date.now();
