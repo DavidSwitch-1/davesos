@@ -37,7 +37,62 @@ export default function App() {
   if (loading) return (
     <div style={{ minHeight: '100vh', background: C.bg, display: 'flex', alignItems: 'center',
       justifyContent: 'center', fontFamily: "'Inter', sans-serif", color: C.textDim }}>
-      Loading...
+   <div style={{ minHeight: '100vh', background: '#0D0D14', display: 'flex',
+  flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+  fontFamily: "'Inter', sans-serif", overflow: 'hidden', position: 'relative' }}>
+
+  {/* Background glow */}
+  <div style={{ position: 'absolute', width: 400, height: 400,
+    borderRadius: '50%', background: 'radial-gradient(circle, #6C63FF22 0%, transparent 70%)',
+    top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} />
+
+  {/* Spinning ring */}
+  <div style={{ position: 'relative', width: 100, height: 100, marginBottom: 32 }}>
+    <svg width="100" height="100" viewBox="0 0 100 100"
+      style={{ animation: 'spin 2s linear infinite', position: 'absolute' }}>
+      <circle cx="50" cy="50" r="45" fill="none" stroke="#1E1E2E" strokeWidth="4"/>
+      <circle cx="50" cy="50" r="45" fill="none" stroke="#6C63FF" strokeWidth="4"
+        strokeLinecap="round" strokeDasharray="80 200"
+        style={{ filter: 'drop-shadow(0 0 6px #6C63FF)' }}/>
+    </svg>
+    <div style={{ position: 'absolute', inset: 0, display: 'flex',
+      alignItems: 'center', justifyContent: 'center', fontSize: 32 }}>⚡</div>
+  </div>
+
+  {/* Title */}
+  <div style={{ fontSize: 32, fontWeight: 800, color: '#ffffff',
+    letterSpacing: '-0.02em', marginBottom: 6, textAlign: 'center',
+    textShadow: '0 0 30px #6C63FF88' }}>
+    Dave's OS
+  </div>
+
+  {/* Subtitle */}
+  <div style={{ fontSize: 11, color: '#6C63FF', letterSpacing: '0.25em',
+    textTransform: 'uppercase', fontWeight: 700, marginBottom: 40,
+    textAlign: 'center' }}>
+    ADHD Organisation Loading
+  </div>
+
+  {/* Progress bar */}
+  <div style={{ width: 200, height: 2, background: '#1E1E2E',
+    borderRadius: 99, overflow: 'hidden' }}>
+    <div style={{ height: '100%', background: 'linear-gradient(90deg, #6C63FF, #8B5CF6)',
+      borderRadius: 99, boxShadow: '0 0 8px #6C63FF',
+      animation: 'progress 1.5s ease-in-out infinite' }}/>
+  </div>
+
+  <style>{`
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes progress {
+      0% { width: 0%; margin-left: 0%; }
+      50% { width: 60%; margin-left: 20%; }
+      100% { width: 0%; margin-left: 100%; }
+    }
+  `}</style>
+</div>
     </div>
   );
 
