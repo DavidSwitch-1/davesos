@@ -34,9 +34,10 @@ const [settings, setSettings] = useState({
       setTasks(t);  setWins(w);  setRadar(r);
       setDelegations(d);  setCheckins(c);  setEnergyLog(e);
 
-      const { data: s } = await supabase
-        .from('user_settings').select('*').eq('id', userId).single();
-      if (s) setSettings(s);
+     const { data: s } = await supabase
+  .from('user_settings').select('*').eq('id', userId).single();
+if (s) setSettings(s);
+else setSettings(prev => ({ ...prev, onboarded: false }));
 
       const fs = JSON.parse(localStorage.getItem('davesos_fs') || '{"sessions":0,"minutes":0}');
       setFocusStats(fs);
