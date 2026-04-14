@@ -144,7 +144,6 @@ function Dashboard({ session }) {
 }
 if (showSettings) {
   return <SettingsScreen settings={settings} onSave={data.saveSettings} onClose={() => setShowSettings(false)} />;
-}
   }
 
   const now = Date.now();
@@ -216,6 +215,7 @@ if (showSettings) {
     const u = { ...kick, a, done: true };
     setKick(u); localStorage.setItem('davesos_kick_' + todayKey(), JSON.stringify(u));
   }
+
 
   if (tab === 'focus-mode' && focusTask) {
     return <FocusMode task={focusTask} bizA={bizA} bizB={bizB}
