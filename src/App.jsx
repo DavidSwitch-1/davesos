@@ -26,7 +26,7 @@ export default function App() {
   const [session,  setSession]  = useState(null);
   const [loading,  setLoading]  = useState(true);
 
-useEffect(() => {
+  useEffect(() => {
     const start = Date.now();
     supabase.auth.getSession().then(({ data }) => {
       const elapsed = Date.now() - start;
@@ -39,77 +39,56 @@ useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_, s) => setSession(s));
     return () => subscription.unsubscribe();
   }, []);
+
   if (loading) return (
-    <div style={{ minHeight: '100vh', background: C.bg, display: 'flex', alignItems: 'center',
-      justifyContent: 'center', fontFamily: "'Inter', sans-serif", color: C.textDim }}>
-   <div style={{ minHeight: '100vh', background: '#0D0D14', display: 'flex',
-  flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-  fontFamily: "'Inter', sans-serif", overflow: 'hidden', position: 'relative' }}>
-
-  {/* Background glow */}
-  <div style={{ position: 'absolute', width: 400, height: 400,
-    borderRadius: '50%', background: 'radial-gradient(circle, #6C63FF22 0%, transparent 70%)',
-    top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} />
-
-  {/* Spinning ring */}
-  <div style={{ position: 'relative', width: 100, height: 100, marginBottom: 32 }}>
-    <svg width="100" height="100" viewBox="0 0 100 100"
-      style={{ animation: 'spin 2s linear infinite', position: 'absolute' }}>
-      <circle cx="50" cy="50" r="45" fill="none" stroke="#1E1E2E" strokeWidth="4"/>
-      <circle cx="50" cy="50" r="45" fill="none" stroke="#6C63FF" strokeWidth="4"
-        strokeLinecap="round" strokeDasharray="80 200"
-        style={{ filter: 'drop-shadow(0 0 6px #6C63FF)' }}/>
-    </svg>
-    <div style={{ position: 'absolute', inset: 0, display: 'flex',
-      alignItems: 'center', justifyContent: 'center', fontSize: 32 }}>⚡</div>
-  </div>
-
-  {/* Title */}
-  <div style={{ fontSize: 32, fontWeight: 800, color: '#ffffff',
-    letterSpacing: '-0.02em', marginBottom: 6, textAlign: 'center',
-    textShadow: '0 0 30px #6C63FF88' }}>
-    Dave's OS
-  </div>
-
-  {/* Subtitle */}
-  <div style={{ fontSize: 11, color: '#6C63FF', letterSpacing: '0.25em',
-    textTransform: 'uppercase', fontWeight: 700, marginBottom: 40,
-    textAlign: 'center' }}>
-    ADHD Organisation Loading
-  </div>
-
-  {/* Progress bar */}
-  <div style={{ width: 200, height: 2, background: '#1E1E2E',
-    borderRadius: 99, overflow: 'hidden' }}>
-    <div style={{ height: '100%', background: 'linear-gradient(90deg, #6C63FF, #8B5CF6)',
-      borderRadius: 99, boxShadow: '0 0 8px #6C63FF',
-      animation: 'progress 1.5s ease-in-out infinite' }}/>
-  </div>
-
-  <style>{`
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    @keyframes progress {
-      0% { width: 0%; margin-left: 0%; }
-      50% { width: 60%; margin-left: 20%; }
-      100% { width: 0%; margin-left: 100%; }
-    }
-  `}</style>
-</div>
+    <div style={{ minHeight: '100vh', background: '#0D0D14', display: 'flex',
+      flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+      fontFamily: "'Inter', sans-serif", overflow: 'hidden', position: 'relative' }}>
+      <div style={{ position: 'absolute', width: 400, height: 400, borderRadius: '50%',
+        background: 'radial-gradient(circle, #6C63FF22 0%, transparent 70%)',
+        top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} />
+      <div style={{ position: 'relative', width: 100, height: 100, marginBottom: 32 }}>
+        <svg width="100" height="100" viewBox="0 0 100 100"
+          style={{ animation: 'spin 2s linear infinite', position: 'absolute' }}>
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#1E1E2E" strokeWidth="4"/>
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#6C63FF" strokeWidth="4"
+            strokeLinecap="round" strokeDasharray="80 200"
+            style={{ filter: 'drop-shadow(0 0 6px #6C63FF)' }}/>
+        </svg>
+        <div style={{ position: 'absolute', inset: 0, display: 'flex',
+          alignItems: 'center', justifyContent: 'center', fontSize: 32 }}>⚡</div>
+      </div>
+      <div style={{ fontSize: 32, fontWeight: 800, color: '#ffffff',
+        letterSpacing: '-0.02em', marginBottom: 6, textAlign: 'center',
+        textShadow: '0 0 30px #6C63FF88' }}>Dave's OS</div>
+      <div style={{ fontSize: 11, color: '#6C63FF', letterSpacing: '0.25em',
+        textTransform: 'uppercase', fontWeight: 700, marginBottom: 40, textAlign: 'center' }}>
+        ADHD Organisation Loading
+      </div>
+      <div style={{ width: 200, height: 2, background: '#1E1E2E', borderRadius: 99, overflow: 'hidden' }}>
+        <div style={{ height: '100%', background: 'linear-gradient(90deg, #6C63FF, #8B5CF6)',
+          borderRadius: 99, boxShadow: '0 0 8px #6C63FF',
+          animation: 'progress 1.5s ease-in-out infinite' }}/>
+      </div>
+      <style>{`
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes progress {
+          0% { width: 0%; margin-left: 0%; }
+          50% { width: 60%; margin-left: 20%; }
+          100% { width: 0%; margin-left: 100%; }
+        }
+      `}</style>
     </div>
   );
 
-if (!session) return <AuthScreen onAuth={setSession} />;
-return <Dashboard session={session} />;
+  if (!session) return <AuthScreen onAuth={setSession} />;
+  return <Dashboard session={session} />;
 }
+
 function Dashboard({ session }) {
   const userId = session.user.id;
   const data = useAppData(userId);
   const { tasks, wins, radar, delegations, checkins, energyLog, settings, focusStats } = data;
-  const bizA = settings.biz_a;
-  const bizB = settings.biz_b;
 
   const [tab,          setTab]          = useState('home');
   const [focusTask,    setFocusTask]    = useState(null);
@@ -132,24 +111,24 @@ function Dashboard({ session }) {
   const [kick,         setKick]         = useState({ loaded: false, q: '', a: '', done: false });
   const [hypAlarm,     setHypAlarm]     = useState(null);
   const [hypFired,     setHypFired]     = useState(false);
-  const [darkMode, setDarkMode] = useState(() => {
-  const saved = localStorage.getItem('davesos_theme');
-  return saved ? saved === 'dark' : true;
-});
   const [newRadar,     setNewRadar]     = useState({ text: '', owner: '', note: '', biz: 'General' });
-  if (!data.loading && !settings.onboarded) {
-    return <OnboardingScreen onComplete={(prefs) => data.saveSettings(prefs)} />;
-  }
+  const [darkMode,     setDarkMode]     = useState(() => {
+    const saved = localStorage.getItem('davesos_theme');
+    return saved ? saved === 'dark' : true;
+  });
+
+  const bizA = settings.biz_a || 'Swi-tch';
+  const bizB = settings.biz_b || 'Throwdown';
 
   useEffect(() => {
     const sk = JSON.parse(localStorage.getItem('davesos_kick_' + todayKey()) || 'null');
     if (sk) setKick({ ...sk, loaded: true });
     else { const q = mornQ(bizA); const st = { q, a: '', done: false, loaded: true }; setKick(st); localStorage.setItem('davesos_kick_' + todayKey(), JSON.stringify(st)); }
     const lastE = parseInt(localStorage.getItem('davesos_energy_ts') || '0');
-    const savedTheme = localStorage.getItem('davesos_theme') || 'dark';
-Object.assign(C, themes[savedTheme]);
-setDarkMode(savedTheme === 'dark');
     if (Date.now() - lastE > 4 * 3600000) setEnergyPrompt(true);
+    const savedTheme = localStorage.getItem('davesos_theme') || 'dark';
+    Object.assign(C, themes[savedTheme]);
+    setDarkMode(savedTheme === 'dark');
   }, [bizA]);
 
   useEffect(() => {
@@ -157,6 +136,10 @@ setDarkMode(savedTheme === 'dark');
     const check = setInterval(() => { if (Date.now() >= hypAlarm) { setHypFired(true); setHypAlarm(null); } }, 10000);
     return () => clearInterval(check);
   }, [hypAlarm]);
+
+  if (!data.loading && !settings.onboarded) {
+    return <OnboardingScreen onComplete={(prefs) => data.saveSettings(prefs)} />;
+  }
 
   const now = Date.now();
   const OD  = now - 5 * 86400000;
@@ -256,7 +239,7 @@ setDarkMode(savedTheme === 'dark');
 
         <div style={{ background: C.sidebar, borderBottom: '1px solid ' + C.border, padding: '0 20px', height: 52, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexShrink: 0 }}>
           <div style={{ flexShrink: 0 }}>
-            <div style={{ fontSize: 14, fontWeight: 600 }}>{greet()}, Dave 👋</div>
+            <div style={{ fontSize: 14, fontWeight: 600 }}>{greet()}, {settings.owner_name || 'Dave'} 👋</div>
             <div style={{ fontSize: 10, color: C.textDim }}>{new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })}</div>
           </div>
           <div style={{ flex: 1, maxWidth: 400, display: 'flex', gap: 7 }}>
@@ -265,32 +248,6 @@ setDarkMode(savedTheme === 'dark');
           </div>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexShrink: 0 }}>
             {overdue > 0 && <div style={S.bdg('#2A1A00', C.amber)}>⚠ {overdue}</div>}
-            <button
-  onClick={() => {
-    const next = !darkMode;
-    setDarkMode(next);
-    Object.assign(C, themes[next ? 'dark' : 'light']);
-    localStorage.setItem('davesos_theme', next ? 'dark' : 'light');
-  }}
-  style={{ background: 'none', border: `1px solid ${C.border}`, borderRadius: 8,
-    padding: '4px 10px', fontSize: 14, cursor: 'pointer', color: C.textMid }}
->
- <button
-  onClick={() => {
-    const next = !darkMode;
-    setDarkMode(next);
-    localStorage.setItem('davesos_theme', next ? 'dark' : 'light');
-    const t = themes[next ? 'dark' : 'light'];
-    Object.keys(t).forEach(k => { C[k] = t[k]; });
-    window.location.reload();
-  }}
-  style={{ background: 'none', border: '1px solid ' + C.border,
-    borderRadius: 8, padding: '4px 10px', fontSize: 14,
-    cursor: 'pointer', color: C.textMid }}
->
-  {darkMode ? '☀️' : '🌙'}
-</button>
-</button>
             {energyPrompt && (
               <div style={{ display: 'flex', gap: 5, alignItems: 'center', background: '#1A1A2E', border: '1px solid ' + C.borderMid, borderRadius: 9, padding: '4px 10px' }}>
                 <span style={{ fontSize: 11, color: '#6A6A9A' }}>Energy?</span>
@@ -300,6 +257,19 @@ setDarkMode(savedTheme === 'dark');
                 ))}
               </div>
             )}
+            <button
+              onClick={() => {
+                const next = !darkMode;
+                setDarkMode(next);
+                localStorage.setItem('davesos_theme', next ? 'dark' : 'light');
+                const t = themes[next ? 'dark' : 'light'];
+                Object.keys(t).forEach(k => { C[k] = t[k]; });
+                window.location.reload();
+              }}
+              style={{ background: 'none', border: '1px solid ' + C.border, borderRadius: 8, padding: '4px 10px', fontSize: 14, cursor: 'pointer', color: C.textMid }}
+            >
+              {darkMode ? '☀️' : '🌙'}
+            </button>
           </div>
         </div>
 
@@ -310,7 +280,7 @@ setDarkMode(savedTheme === 'dark');
               {hypFired && (
                 <div style={{ background: '#2A0A0A', border: '2px solid ' + C.red, borderRadius: 13, padding: '14px 16px', marginBottom: 10, display: 'flex', gap: 12, alignItems: 'center' }}>
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: C.red }}>Surface time, Dave</div>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: C.red }}>Surface time, {settings.owner_name || 'Dave'}</div>
                     <div style={{ fontSize: 12, color: '#AA8080', marginTop: 2 }}>Hyperfocus alarm fired. Come up for air.</div>
                   </div>
                   <button onClick={() => setHypFired(false)} style={{ background: C.red + '22', color: C.red, border: '1px solid ' + C.red + '44', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>Got it</button>
