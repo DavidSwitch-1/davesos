@@ -25,20 +25,19 @@ export default function App() {
   const [session,  setSession]  = useState(null);
   const [loading,  setLoading]  = useState(true);
 
-  useEffect(() => {
- const start = Date.now();
-supabase.auth.getSession().then(({ data }) => {
-  const elapsed = Date.now() - start;
-  const remaining = Math.max(0, 1500 - elapsed);
-  setTimeout(() => {
-    setSession(data.session);
-    setLoading(false);
-  }, remaining);
-});
+useEffect(() => {
+    const start = Date.now();
+    supabase.auth.getSession().then(({ data }) => {
+      const elapsed = Date.now() - start;
+      const remaining = Math.max(0, 1500 - elapsed);
+      setTimeout(() => {
+        setSession(data.session);
+        setLoading(false);
+      }, remaining);
+    });
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_, s) => setSession(s));
     return () => subscription.unsubscribe();
   }, []);
-
   if (loading) return (
     <div style={{ minHeight: '100vh', background: C.bg, display: 'flex', alignItems: 'center',
       justifyContent: 'center', fontFamily: "'Inter', sans-serif", color: C.textDim }}>
