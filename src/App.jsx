@@ -121,7 +121,7 @@ function Dashboard({ session }) {
     return <OnboardingScreen onComplete={handleOnboardingComplete} />;
   }
 
-  return <Dashboard session={session} />;
+return <Dashboard session={session} />;
 }
   const userId = session.user.id;
   const data = useAppData(userId);
