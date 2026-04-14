@@ -3,7 +3,7 @@ import { supabase, signOut } from './lib/supabase';
 import { useAppData } from './hooks/useAppData';
 import { classify, QUADS, QUAD_ORDER, greet, fmtDate, fmtTime, todayKey, mornQ, checkinReply, localCoachReply } from './lib/utils';
 import { callClaude, buildCoachSystem, buildBriefSystem } from './lib/claude';
-import { S, C } from './lib/styles';
+import { S, C, themes } from './lib/styles';
 import AuthScreen from './components/AuthScreen';
 import TasksTab from './components/TasksTab';
 import FocusMode from './components/FocusMode';
