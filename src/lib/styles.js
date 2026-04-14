@@ -37,59 +37,59 @@ export const themes = {
   },
 };
 
-export let C = themes.dark;
+export let C = { ...themes.dark };
 
 export const S = {
-  card: () => ({
-    background: C.bgCard,
-    border: `1px solid ${C.border}`,
+  card: {
+    background: '#161622',
+    border: '1px solid #1E1E2E',
     borderRadius: 13,
     padding: '14px 16px',
     marginBottom: 9,
-  }),
+  },
   lbl: {
     fontSize: 10,
     fontWeight: 700,
     letterSpacing: '0.08em',
     textTransform: 'uppercase',
-    color: C.textDim,
+    color: '#4A4A6A',
     marginBottom: 8,
     display: 'block',
   },
-  inp: () => ({
-    background: C.bg,
-    border: `1px solid ${C.border}`,
+  inp: {
+    background: '#0D0D14',
+    border: '1px solid #1E1E2E',
     borderRadius: 8,
     padding: '8px 11px',
     fontSize: 14,
-    color: C.text,
+    color: '#E0DEF0',
     width: '100%',
     boxSizing: 'border-box',
     outline: 'none',
-  }),
-  ta: () => ({
-    background: C.bg,
-    border: `1px solid ${C.border}`,
+  },
+  ta: {
+    background: '#0D0D14',
+    border: '1px solid #1E1E2E',
     borderRadius: 8,
     padding: '8px 11px',
     fontSize: 14,
-    color: C.text,
+    color: '#E0DEF0',
     width: '100%',
     boxSizing: 'border-box',
     outline: 'none',
     resize: 'vertical',
     lineHeight: 1.7,
-  }),
-  sel: () => ({
-    background: C.bg,
-    border: `1px solid ${C.border}`,
+  },
+  sel: {
+    background: '#0D0D14',
+    border: '1px solid #1E1E2E',
     borderRadius: 8,
     padding: '8px 11px',
     fontSize: 13,
-    color: C.text,
+    color: '#E0DEF0',
     outline: 'none',
     cursor: 'pointer',
-  }),
+  },
   btn: (color = '#6C63FF') => ({
     background: color,
     color: '#fff',
@@ -100,22 +100,22 @@ export const S = {
     fontWeight: 600,
     cursor: 'pointer',
   }),
-  ghost: () => ({
-    background: C.bg,
-    color: C.textMid,
-    border: `1px solid ${C.border}`,
+  ghost: {
+    background: '#0D0D14',
+    color: '#9A9AB0',
+    border: '1px solid #1E1E2E',
     borderRadius: 8,
     padding: '8px 12px',
     fontSize: 13,
     cursor: 'pointer',
-  }),
-  row: () => ({
+  },
+  row: {
     display: 'flex',
     alignItems: 'center',
     gap: 8,
     padding: '9px 0',
-    borderBottom: `1px solid ${C.border}`,
-  }),
+    borderBottom: '1px solid #1E1E2E',
+  },
   pill: (color) => ({
     display: 'inline-block',
     background: color + '22',
@@ -133,11 +133,11 @@ export const S = {
     fontSize: 11,
     fontWeight: 600,
   }),
-  statCard: () => ({
-    background: C.bg,
-    border: `1px solid ${C.border}`,
+  statCard: {
+    background: '#0D0D14',
+    border: '1px solid #1E1E2E',
     borderRadius: 11,
     padding: 13,
     textAlign: 'center',
-  }),
+  },
 };
