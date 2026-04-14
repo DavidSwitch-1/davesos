@@ -140,6 +140,9 @@ function Dashboard({ session }) {
   return saved ? saved === 'dark' : true;
 });
   const [newRadar,     setNewRadar]     = useState({ text: '', owner: '', note: '', biz: 'General' });
+  if (!data.loading && !settings.onboarded) {
+    return <OnboardingScreen onComplete={(prefs) => data.saveSettings(prefs)} />;
+  }
 
   useEffect(() => {
     const sk = JSON.parse(localStorage.getItem('davesos_kick_' + todayKey()) || 'null');
