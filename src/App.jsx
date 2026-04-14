@@ -359,7 +359,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
                     {!brief.text && !brief.loading && <div style={{ fontSize: 12, color: C.textFaint }}>Hit generate for a Claude briefing built from your tasks, wins and energy.</div>}
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 9, marginBottom: 14 }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2,1fr)' : 'repeat(4,1fr)', gap: 9, marginBottom: 14 }}>
                     {[
                       { v: active.length, l: 'tasks left', c: overdue > 0 ? C.amber : C.purple, sub: overdue > 0 ? overdue + ' overdue' : pct + '%' },
                       { v: done.length, l: 'done', c: C.green, sub: 'today' },
@@ -391,7 +391,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
                     </div>
                   )}
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 9, marginBottom: 14 }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr', gap: 9, marginBottom: 14 }}>
                     {[bizA, bizB, 'Personal'].map(name => {
                       const bt = active.filter(t => t.biz === name);
                       const rc = radar.filter(r => r.biz === name && !r.done).length;
