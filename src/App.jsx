@@ -148,7 +148,7 @@ useEffect(() => {
   return <OnboardingScreen onComplete={(prefs) => data.saveSettings(prefs)} />;
 }
 if (showSettings) {
-<SettingsScreen settings={settings} onSave={data.saveSettings} onClose={() => setShowSettings(false)} onSignOut={signOut} darkMode={darkMode} onToggleDark={() => {
+return <SettingsScreen settings={settings}
   const next = !darkMode;
   setDarkMode(next);
   localStorage.setItem('davesos_theme', next ? 'dark' : 'light');
