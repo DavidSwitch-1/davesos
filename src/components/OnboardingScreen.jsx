@@ -30,7 +30,7 @@ export default function OnboardingScreen({ onComplete }) {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 36, marginBottom: 12 }}>⚡</div>
-          <div style={{ fontSize: 24, fontWeight: 800, marginBottom: 6 }}>Welcome to Dave's OS</div>
+          <div style={{ fontSize: 24, fontWeight: 800, marginBottom: 6 }}>Welcome to Zoned</div>
           <div style={{ fontSize: 14, color: '#4A4A6A' }}>Let's set it up for you — takes 30 seconds</div>
         </div>
 
