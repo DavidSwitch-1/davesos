@@ -603,6 +603,15 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
                   <button style={S.btn(C.amber)} onClick={() => { if (newDel.task.trim() && newDel.person.trim()) { data.addDelegation({ ...newDel, status: 'waiting' }); setNewDel({ task: '', person: '', due: '' }); } }}>Delegate</button>
                 </div>
               </div>
+              {delegations.length === 0 && (
+  <div style={{ ...S.card, textAlign: 'center', padding: '32px 16px' }}>
+    <div style={{ fontSize: 32, marginBottom: 12 }}>👥</div>
+    <div style={{ fontSize: 15, fontWeight: 600, color: C.textMid, marginBottom: 6 }}>Nothing delegated yet</div>
+    <div style={{ fontSize: 13, color: C.textDim, lineHeight: 1.6 }}>
+      What are you doing that someone else could do at 80%? Hand it off.
+    </div>
+  </div>
+)}
               {['waiting','in-progress','done'].map(status => {
                 const items = delegations.filter(d => d.status === status);
                 if (!items.length) return null;
