@@ -105,7 +105,7 @@ export default function TasksTab({ tasks, bizA, bizB, onAdd, onToggle, onDelete,
             value={newTxt}
             onChange={e => setNewTxt(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && addTask()}
-            autoFocus />
+           />
           <button style={S.btn()} onClick={addTask}>Capture</button>
         </div>
         {capPrev && (
