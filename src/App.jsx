@@ -642,6 +642,15 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
                 </div>
                 <div style={{ fontSize: 12, color: C.textDim, marginTop: 6 }}>Wins rewire your brain. Small counts.</div>
               </div>
+              {wins.length === 0 && (
+  <div style={{ textAlign: 'center', padding: '32px 16px' }}>
+    <div style={{ fontSize: 32, marginBottom: 12 }}>🌟</div>
+    <div style={{ fontSize: 15, fontWeight: 600, color: C.textMid, marginBottom: 6 }}>No wins logged yet</div>
+    <div style={{ fontSize: 13, color: C.textDim, lineHeight: 1.6 }}>
+      Every small step counts. What did you finish today?
+    </div>
+  </div>
+)}
               {wins.map(w => (
                 <div key={w.id} style={{ ...S.card, display: 'flex', gap: 9, alignItems: 'flex-start', padding: '12px 14px' }}>
                   <span style={{ fontSize: 15, color: C.amber, flexShrink: 0 }}>★</span>
