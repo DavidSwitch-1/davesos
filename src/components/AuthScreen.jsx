@@ -41,9 +41,9 @@ export default function AuthScreen({ onAuth }) {
 
         <div style={{ textAlign: 'center', marginBottom: 32 }}>
           <div style={{ fontSize: 32, marginBottom: 8 }}>⚡</div>
-          <div style={{ fontSize: 22, fontWeight: 700, color: C.text }}>Dave's OS</div>
+          <div style={{ fontSize: 22, fontWeight: 700, color: C.text }}>Zoned</div>
           <div style={{ fontSize: 13, color: C.textDim, marginTop: 4 }}>
-            Your personal productivity system
+            Get in the Zone.
           </div>
         </div>
 
