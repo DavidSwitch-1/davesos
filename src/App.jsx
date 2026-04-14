@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-const isMobile = window.innerWidth < 768;
+const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 import { supabase, signOut } from './lib/supabase';
 import { useAppData } from './hooks/useAppData';
 import { classify, QUADS, QUAD_ORDER, greet, fmtDate, fmtTime, todayKey, mornQ, checkinReply, localCoachReply } from './lib/utils';
