@@ -494,6 +494,15 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
 
                   {radar.filter(r => !r.done).length > 0 && <RadarTicker radar={radar} bizColors={bizColors} onGoToRadar={() => setTab('radar')} />}
 
+                  {active.length === 0 && (
+  <div style={{ textAlign: 'center', padding: '32px 16px', background: '#161622', border: '1px solid #1E1E2E', borderRadius: 13, marginBottom: 9 }}>
+    <div style={{ fontSize: 32, marginBottom: 12 }}>✨</div>
+    <div style={{ fontSize: 15, fontWeight: 600, color: '#9A9AB0', marginBottom: 6 }}>All clear!</div>
+    <div style={{ fontSize: 13, color: '#4A4A6A', lineHeight: 1.6 }}>
+      No active tasks. Add something above or do a brain dump to get started.
+    </div>
+  </div>
+)}
                   {done.length > 0 && (
                     <div style={{ ...S.card, opacity: 0.5 }}>
                       <span style={S.lbl}>Done today ({done.length})</span>
