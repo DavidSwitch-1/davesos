@@ -767,10 +767,9 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
             </div>
           )}
 
-        </div>
+     </div>
       </div>
-    </div>
-   {isMobile && (
+      {isMobile && (
   <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, height: 60,
     background: C.sidebar, borderTop: '1px solid ' + C.border,
     display: 'flex', alignItems: 'center', justifyContent: 'space-around',
