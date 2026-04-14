@@ -8,7 +8,14 @@ export function useAppData(userId) {
   const [delegations, setDelegations] = useState([]);
   const [checkins,    setCheckins]    = useState([]);
   const [energyLog,   setEnergyLog]   = useState([]);
-  const [settings,    setSettings]    = useState({ biz_a: 'Swi-tch', biz_b: 'Throwdown' });
+const [settings, setSettings] = useState({ 
+  biz_a: 'Business 1', 
+  biz_b: 'Business 2', 
+  biz_c: 'Personal',
+  owner_name: 'there',
+  workspace_count: 2,
+  onboarded: false
+});
   const [focusStats,  setFocusStats]  = useState({ sessions: 0, minutes: 0 });
   const [loading,     setLoading]     = useState(true);
 
