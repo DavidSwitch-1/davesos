@@ -117,6 +117,7 @@ function Dashboard({ session }) {
     const saved = localStorage.getItem('davesos_theme');
     return saved ? saved === 'dark' : true;
   });
+  const [showSettings, setShowSettings] = useState(false);
 
   const bizA = settings.biz_a || 'Swi-tch';
   const bizB = settings.biz_b || 'Throwdown';
