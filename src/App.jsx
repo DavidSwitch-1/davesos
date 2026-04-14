@@ -35,7 +35,6 @@ supabase.auth.getSession().then(({ data }) => {
     setLoading(false);
   }, remaining);
 });
-    });
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_, s) => setSession(s));
     return () => subscription.unsubscribe();
   }, []);
