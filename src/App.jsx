@@ -697,6 +697,15 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
                   </div>
                 )}
               </div>
+              {checkins.length === 0 && !citd && (
+  <div style={{ ...S.card, textAlign: 'center', padding: '32px 16px' }}>
+    <div style={{ fontSize: 32, marginBottom: 12 }}>📊</div>
+    <div style={{ fontSize: 15, fontWeight: 600, color: C.textMid, marginBottom: 6 }}>No check-ins yet</div>
+    <div style={{ fontSize: 13, color: C.textDim, lineHeight: 1.6 }}>
+      End each day with a quick check-in. It builds self-awareness over time.
+    </div>
+  </div>
+)}
               {ciRes && !citd && <div style={{ ...S.card, border: '1px solid #1A3A22', background: '#0A1E12' }}><div style={{ fontSize: 13, color: '#A0DEB8', lineHeight: 1.9, whiteSpace: 'pre-wrap' }}>{ciRes}</div></div>}
             </div>
           )}
