@@ -191,7 +191,7 @@ if (showSettings) {
     setChatIn(''); setChatLoading(true);
     const userMsg = { role: 'user', content: msg };
     setChat(c => [...c, userMsg]);
-    const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations, energyLog);
+buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations, energyLog, settings)
     const history = [...chat, userMsg].slice(-8);
     const reply = await callClaude(history, system) || localCoachReply(msg, bizA, bizB, tasks, delegations);
     setChat(c => [...c, { role: 'assistant', content: reply }]);
@@ -199,7 +199,7 @@ if (showSettings) {
   }
   async function generateBrief() {
     setBrief({ text: '', loading: true });
-    const system = buildBriefSystem(bizA, bizB);
+    buildBriefSystem(bizA, bizB, settings)
     const topTasks = [...active].sort((a, b) => QUAD_ORDER[a.quadrant] - QUAD_ORDER[b.quadrant]).slice(0, 4).map(t => '- ' + t.text + ' (' + t.biz + ')').join('\n');
     const userMsg = 'Tasks:\n' + (topTasks || 'None') + '\n\nWins:\n' + (wins.slice(0, 3).map(w => '- ' + w.text).join('\n') || 'None') + '\n\nFocus: ' + focusStats.sessions + ' sessions.\nStreak: ' + checkins.length + ' check-ins.';
     const reply = await callClaude([{ role: 'user', content: userMsg }], system, 200);
