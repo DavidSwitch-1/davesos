@@ -148,7 +148,14 @@ useEffect(() => {
   return <OnboardingScreen onComplete={(prefs) => data.saveSettings(prefs)} />;
 }
 if (showSettings) {
-  return <SettingsScreen settings={settings} onSave={data.saveSettings} onClose={() => setShowSettings(false)} />;
+<SettingsScreen settings={settings} onSave={data.saveSettings} onClose={() => setShowSettings(false)} onSignOut={signOut} darkMode={darkMode} onToggleDark={() => {
+  const next = !darkMode;
+  setDarkMode(next);
+  localStorage.setItem('davesos_theme', next ? 'dark' : 'light');
+  const t = themes[next ? 'dark' : 'light'];
+  Object.keys(t).forEach(k => { C[k] = t[k]; });
+  window.location.reload();
+}} />
   }
 
   const now = Date.now();
