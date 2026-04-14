@@ -217,8 +217,6 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
     setKick(u); localStorage.setItem('davesos_kick_' + todayKey(), JSON.stringify(u));
   }
 
-
-  const isMobile = window.innerWidth < 768;
   if (tab === 'focus-mode' && focusTask) {
     return <FocusMode task={focusTask} bizA={bizA} bizB={bizB}
       onExit={() => { setFocusTask(null); setTab('home'); }}
