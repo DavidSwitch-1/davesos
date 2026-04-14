@@ -297,7 +297,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
 <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px 12px 80px' : '18px 20px' }}>
 
           {tab === 'home' && (
-            <div style={{ maxWidth: 700, margin: '0 auto' }}>
+            <div style={{ maxWidth: isMobile ? '100%' : 700, margin: '0 auto' }}>
               {hypFired && (
                 <div style={{ background: '#2A0A0A', border: '2px solid ' + C.red, borderRadius: 13, padding: '14px 16px', marginBottom: 10, display: 'flex', gap: 12, alignItems: 'center' }}>
                   <div style={{ flex: 1 }}>
@@ -517,7 +517,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
           )}
 
           {tab === 'dump' && (
-            <div style={{ maxWidth: 700, margin: '0 auto' }}>
+            <div style={{ maxWidth: isMobile ? '100%' : 700, margin: '0 auto' }}>
               <div style={S.card}>
                 <span style={S.lbl}>Brain dump</span>
                 <div style={{ fontSize: 13, color: C.textDim, marginBottom: 10, lineHeight: 1.5 }}>Get everything out. One item per line. It sorts automatically.</div>
@@ -551,7 +551,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
           )}
 
           {tab === 'matrix' && (
-            <div style={{ maxWidth: 700, margin: '0 auto' }}>
+            <div style={{ maxWidth: isMobile ? '100%' : 700, margin: '0 auto' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 10 }}>
                 {QUADS.map(q => {
                   const qt = active.filter(t => t.quadrant === q.id);
@@ -583,7 +583,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
           {tab === 'focus' && <FocusTab focusStats={focusStats} active={active} hypAlarm={hypAlarm} setHypAlarm={setHypAlarm} onStartFocus={startFocus} />}
 
           {tab === 'delegate' && (
-            <div style={{ maxWidth: 700, margin: '0 auto' }}>
+            <div style={{ maxWidth: isMobile ? '100%' : 700, margin: '0 auto' }}>
               <div style={S.card}>
                 <span style={S.lbl}>Delegation tracker</span>
                 <input style={{ ...S.inp, marginBottom: 8 }} placeholder="What are you delegating..." value={newDel.task} onChange={e => setNewDel(d => ({ ...d, task: e.target.value }))} />
@@ -623,7 +623,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
           )}
 
           {tab === 'wins' && (
-            <div style={{ maxWidth: 700, margin: '0 auto' }}>
+            <div style={{ maxWidth: isMobile ? '100%' : 700, margin: '0 auto' }}>
               <div style={S.card}>
                 <span style={S.lbl}>Log a win</span>
                 <div style={{ display: 'flex', gap: 8 }}>
@@ -674,7 +674,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
           )}
 
           {tab === 'radar' && (
-            <div style={{ maxWidth: 700, margin: '0 auto' }}>
+            <div style={{ maxWidth: isMobile ? '100%' : 700, margin: '0 auto' }}>
               <div style={{ ...S.card, border: '1px solid #2A1A4A', background: '#13102A' }}>
                 <span style={{ ...S.lbl, color: C.violet }}>Radar</span>
                 <div style={{ fontSize: 13, color: C.textDim, marginBottom: 12, lineHeight: 1.6 }}>Things you're watching but not doing. Parked, not forgotten.</div>
@@ -722,7 +722,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
           )}
 
           {tab === 'coach' && (
-            <div style={{ maxWidth: 700, margin: '0 auto' }}>
+            <div style={{ maxWidth: isMobile ? '100%' : 700, margin: '0 auto' }}>
               <div style={{ ...S.card, borderLeft: '3px solid ' + C.purple, borderRadius: 0, background: '#13102A' }}>
                 <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 3 }}>Your coach</div>
                 <div style={{ fontSize: 13, color: C.textDim, lineHeight: 1.5 }}>Powered by Claude. Knows your businesses, tasks, and patterns.</div>
