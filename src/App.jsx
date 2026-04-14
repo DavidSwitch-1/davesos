@@ -140,8 +140,9 @@ function Dashboard({ session }) {
   }, [hypAlarm]);
 
   if (!data.loading && !settings.onboarded) {
-    return <OnboardingScreen onComplete={(prefs) => data.saveSettings(prefs)} />;
-    if (showSettings) {
+  return <OnboardingScreen onComplete={(prefs) => data.saveSettings(prefs)} />;
+}
+if (showSettings) {
   return <SettingsScreen settings={settings} onSave={data.saveSettings} onClose={() => setShowSettings(false)} />;
 }
   }
