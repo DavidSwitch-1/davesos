@@ -126,6 +126,9 @@ return <Dashboard session={session} />;
   const userId = session.user.id;
   const data = useAppData(userId);
   const { tasks, wins, radar, delegations, checkins, energyLog, settings, focusStats } = data;
+  if (!data.loading && !settings.onboarded) {
+    return <OnboardingScreen onComplete={(prefs) => data.saveSettings(prefs)} />;
+  }
   const bizA = settings.biz_a;
   const bizB = settings.biz_b;
 
