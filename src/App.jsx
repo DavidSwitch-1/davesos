@@ -81,6 +81,9 @@ function Dashboard({ session }) {
     if (sk) setKick({ ...sk, loaded: true });
     else { const q = mornQ(bizA); const st = { q, a: '', done: false, loaded: true }; setKick(st); localStorage.setItem('davesos_kick_' + todayKey(), JSON.stringify(st)); }
     const lastE = parseInt(localStorage.getItem('davesos_energy_ts') || '0');
+    const savedTheme = localStorage.getItem('davesos_theme') || 'dark';
+Object.assign(C, themes[savedTheme]);
+setDarkMode(savedTheme === 'dark');
     if (Date.now() - lastE > 4 * 3600000) setEnergyPrompt(true);
   }, [bizA]);
 
