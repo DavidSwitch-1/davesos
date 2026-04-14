@@ -197,6 +197,18 @@ function Dashboard({ session }) {
           </div>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexShrink: 0 }}>
             {overdue > 0 && <div style={S.bdg('#2A1A00', C.amber)}>⚠ {overdue}</div>}
+            <button
+  onClick={() => {
+    const next = !darkMode;
+    setDarkMode(next);
+    Object.assign(C, themes[next ? 'dark' : 'light']);
+    localStorage.setItem('davesos_theme', next ? 'dark' : 'light');
+  }}
+  style={{ background: 'none', border: `1px solid ${C.border}`, borderRadius: 8,
+    padding: '4px 10px', fontSize: 14, cursor: 'pointer', color: C.textMid }}
+>
+  {darkMode ? '☀️' : '🌙'}
+</button>
             {energyPrompt && (
               <div style={{ display: 'flex', gap: 5, alignItems: 'center', background: '#1A1A2E', border: '1px solid ' + C.borderMid, borderRadius: 9, padding: '4px 10px' }}>
                 <span style={{ fontSize: 11, color: '#6A6A9A' }}>Energy?</span>
