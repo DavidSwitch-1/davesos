@@ -8,6 +8,7 @@ import AuthScreen from './components/AuthScreen';
 import TasksTab from './components/TasksTab';
 import FocusMode from './components/FocusMode';
 import OnboardingScreen from './components/OnboardingScreen';
+import SettingsScreen from './components/SettingsScreen';
 
 const NAV = [
   { id: 'home',     icon: '⌂', label: 'Home'      },
