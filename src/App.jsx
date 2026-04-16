@@ -249,7 +249,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
 
     {!isMobile && (
   <div style={{ width: 200, background: C.sidebar, borderRight: '1px solid ' + C.border, display: 'flex', flexDirection: 'column', padding: '16px 10px', gap: 2, flexShrink: 0, overflowY: 'auto' }}>
-    <div style={{ fontSize: 15, fontWeight: 800, color: C.purple, letterSpacing: '-0.01em', marginBottom: 18, paddingLeft: 4 }}>Dave's OS</div>
+    <div style={{ fontSize: 15, fontWeight: 800, color: C.purple, letterSpacing: '-0.01em', marginBottom: 18, paddingLeft: 4 }}>⚡ Zoned</div>
     {NAV.map(n => (
       <button key={n.id} onClick={() => setTab(n.id)} title={n.label}
         style={{ background: tab === n.id ? C.purple + '22' : 'transparent', color: tab === n.id ? C.purple : C.textMid, border: tab === n.id ? '1px solid ' + C.purple + '44' : '1px solid transparent', borderRadius: 9, width: '100%', height: 38, display: 'flex', alignItems: 'center', padding: '0 10px', gap: 10, cursor: 'pointer', flexShrink: 0 }}>
