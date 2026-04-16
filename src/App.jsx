@@ -247,13 +247,13 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
     <div style={{ display: 'flex', height: '100vh', fontFamily: "'Inter', sans-serif", background: C.bg, color: C.text, overflow: 'hidden' }}>
 
     {!isMobile && (
-  <div style={{ width: 62, background: C.sidebar, borderRight: '1px solid ' + C.border, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '14px 0', gap: 1, flexShrink: 0, overflowY: 'auto' }}>
-    <div style={{ fontSize: 10, fontWeight: 700, color: C.purple, letterSpacing: '0.05em', textTransform: 'uppercase', writingMode: 'vertical-rl', transform: 'rotate(180deg)', marginBottom: 14, marginTop: 4 }}>Dave's OS</div>
+  <div style={{ width: 200, background: C.sidebar, borderRight: '1px solid ' + C.border, display: 'flex', flexDirection: 'column', padding: '16px 10px', gap: 2, flexShrink: 0, overflowY: 'auto' }}>
+    <div style={{ fontSize: 15, fontWeight: 800, color: C.purple, letterSpacing: '-0.01em', marginBottom: 18, paddingLeft: 4 }}>Dave's OS</div>
     {NAV.map(n => (
       <button key={n.id} onClick={() => setTab(n.id)} title={n.label}
-        style={{ background: tab === n.id ? C.purple : 'transparent', color: tab === n.id ? '#fff' : C.textFaint, border: 'none', borderRadius: 9, width: 46, height: 44, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, cursor: 'pointer', flexShrink: 0 }}>
+        style={{ background: tab === n.id ? C.purple + '22' : 'transparent', color: tab === n.id ? C.purple : C.textMid, border: tab === n.id ? '1px solid ' + C.purple + '44' : '1px solid transparent', borderRadius: 9, width: '100%', height: 38, display: 'flex', alignItems: 'center', padding: '0 10px', gap: 10, cursor: 'pointer', flexShrink: 0 }}>
         <span style={{ fontSize: 13 }}>{n.icon}</span>
-        <span style={{ fontSize: 7, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: tab === n.id ? 'rgba(255,255,255,0.6)' : '#2A2A42' }}>{n.label}</span>
+        <span style={{ fontSize: 13, fontWeight: tab === n.id ? 600 : 400 }}>{n.label}</span>
       </button>
     ))}
     <div style={{ flex: 1 }} />
@@ -268,7 +268,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
-    <div style={{ background: C.sidebar, borderBottom: '1px solid ' + C.border, padding: isMobile ? '0 10px' : '0 20px', height: isMobile ? 'auto' : 52, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexShrink: 0, flexWrap: isMobile ? 'wrap' : 'nowrap' }}>
+    <div style={{ background: C.sidebar, borderBottom: '1px solid ' + C.border, padding: isMobile ? '8px 10px' : '0 20px', minHeight: isMobile ? 'auto' : 52, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexShrink: 0, flexWrap: isMobile ? 'wrap' : 'nowrap' }}>
           <div style={{ flexShrink: 0 }}>
             <div style={{ fontSize: 14, fontWeight: 600 }}>{greet()}, {settings.owner_name || 'Dave'} 👋</div>
             <div style={{ fontSize: 10, color: C.textDim }}>{new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })}</div>
@@ -304,7 +304,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
           </div>
         </div>
 
-<div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px 12px 80px' : '18px 20px' }}>
+<div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px 12px 72px' : '18px 20px' }}>
 
           {tab === 'home' && (
             <div style={{ maxWidth: isMobile ? '100%' : 700, margin: '0 auto' }}>
