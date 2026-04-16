@@ -118,9 +118,9 @@ function Dashboard({ session }) {
     return saved ? saved === 'dark' : true;
   });
   const [showSettings, setShowSettings] = useState(false);
-const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+const [isMobile, setIsMobile] = useState(window.innerWidth < 768 || /Mobi|Android|iPhone/i.test(navigator.userAgent) || /Mobi|Android|iPhone/i.test(navigator.userAgent));
 useEffect(() => {
-  const handleResize = () => setIsMobile(window.innerWidth < 768);
+  const handleResize = () => setIsMobile(window.innerWidth < 768 || /Mobi|Android|iPhone/i.test(navigator.userAgent) || /Mobi|Android|iPhone/i.test(navigator.userAgent));
   window.addEventListener('resize', handleResize);
   return () => window.removeEventListener('resize', handleResize);
 }, []);
@@ -269,7 +269,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
-    <div style={{ background: C.sidebar, borderBottom: '1px solid ' + C.border, padding: isMobile ? '8px 10px' : '0 20px', minHeight: isMobile ? 'auto' : 52, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexShrink: 0, flexWrap: isMobile ? 'wrap' : 'nowrap' }}>
+    <div style={{ background: C.sidebar, borderBottom: '1px solid ' + C.border, padding: isMobile ? '6px 10px' : '0 20px', minHeight: isMobile ? 44 : 52, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexShrink: 0, flexWrap: 'nowrap' }}>
           <div style={{ flexShrink: 0 }}>
             <div style={{ fontSize: 14, fontWeight: 600 }}>{greet()}, {settings.owner_name || 'Dave'} 👋</div>
             <div style={{ fontSize: 10, color: C.textDim }}>{new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })}</div>
