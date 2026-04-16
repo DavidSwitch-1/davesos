@@ -246,6 +246,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
   return (
     <div style={{ display: 'flex', height: '100vh', fontFamily: "'Inter', sans-serif", background: C.bg, color: C.text, overflow: 'hidden' }}>
 
+
     {!isMobile && (
   <div style={{ width: 200, background: C.sidebar, borderRight: '1px solid ' + C.border, display: 'flex', flexDirection: 'column', padding: '16px 10px', gap: 2, flexShrink: 0, overflowY: 'auto' }}>
     <div style={{ fontSize: 15, fontWeight: 800, color: C.purple, letterSpacing: '-0.01em', marginBottom: 18, paddingLeft: 4 }}>Dave's OS</div>
