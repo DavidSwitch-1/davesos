@@ -322,7 +322,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
               {badDayMode ? (
                 <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
                   <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: C.textFaint, marginBottom: 18 }}>Bad day mode</div>
-                  </div><div>{topTask ? (
+                 {topTask ? (
                     <div>
                       <div style={{ fontSize: 13, color: C.textDim, marginBottom: 10 }}>One thing. That is all.</div>
                       <div style={{ ...S.card, border: '1px solid #2A1A4A', background: '#13102A', marginBottom: 14, textAlign: 'left' }}>
