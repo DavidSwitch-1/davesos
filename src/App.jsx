@@ -345,7 +345,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
               ) : (
                 <div>
                                     <div style={{ display: isMobile ? 'block' : 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, alignItems: 'start' }}>
-                                                        <div></div>
+                                                        <div>
                   <div style={{ ...S.card, background: '#0D0D16', border: '1px solid #1A1A2E', marginBottom: 9 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: brief.text ? 8 : 0 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
