@@ -322,7 +322,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
               {badDayMode ? (
                 <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
                   <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: C.textFaint, marginBottom: 18 }}>Bad day mode</div>
-                  {topTask ? (
+                  </div><div>{topTask ? (
                     <div>
                       <div style={{ fontSize: 13, color: C.textDim, marginBottom: 10 }}>One thing. That is all.</div>
                       <div style={{ ...S.card, border: '1px solid #2A1A4A', background: '#13102A', marginBottom: 14, textAlign: 'left' }}>
@@ -344,6 +344,8 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
                 </div>
               ) : (
                 <div>
+                                    <div style={{ display: isMobile ? 'block' : 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, alignItems: 'start' }}>
+                                                        <div></div>
                   <div style={{ ...S.card, background: '#0D0D16', border: '1px solid #1A1A2E', marginBottom: 9 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: brief.text ? 8 : 0 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
@@ -451,7 +453,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
                     )}
                   </div>
 
-                  {topTask ? (
+                  </div><div>{topTask ? (
                     <div style={{ ...S.card, border: '1px solid #2A1A4A', background: 'linear-gradient(135deg,#13102A,#160E24)' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
                         <span style={{ ...S.lbl, color: C.purple, marginBottom: 0 }}>Start here</span>
@@ -516,7 +518,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
                     </div>
                   )}
 
-                  <div style={{ textAlign: 'center', paddingTop: 6 }}>
+                  </div></div><div style={{ textAlign: 'center', paddingTop: 6 }}>
                     <button onClick={() => setBadDayMode(true)} style={{ background: 'none', border: 'none', fontSize: 11, color: C.textFaint, cursor: 'pointer' }}>
                       Having a rough day? →
                     </button>
