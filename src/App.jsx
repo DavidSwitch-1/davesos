@@ -13,8 +13,6 @@ import SettingsScreen from './components/SettingsScreen';
 const NAV = [
   { id: 'home',     icon: '⌂', label: 'Home'      },
   { id: 'tasks',    icon: '✓', label: 'Tasks'     },
-  { id: 'dump',     icon: '↯', label: 'Dump'      },
-  { id: 'matrix',   icon: '⊞', label: 'Matrix'    },
   { id: 'focus',    icon: '◎', label: 'Focus'     },
   { id: 'delegate', icon: '→', label: 'Delegate'  },
   { id: 'wins',     icon: '★', label: 'Wins'      },
@@ -453,7 +451,9 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
                     )}
                   </div>
 
-                  </div><div>{topTask ? (
+                  <div style={{ ...S.card, marginTop: 9 }}><span style={S.lbl}>Brain dump</span><div style={{ fontSize: 12, color: C.textDim, marginBottom: 8, lineHeight: 1.5 }}>Get everything out. One item per line.</div><textarea style={{ ...S.ta, minHeight: 100 }} placeholder={'Call back Sarah
+Fix Switch bug
+Book dentist...'} value={dumpTxt} onChange={e => setDumpTxt(e.target.value)} /><div style={{ display: 'flex', gap: 8, marginTop: 8 }}><button style={S.btn(C.red)} onClick={runDump}>Sort it all out</button>{dumpTxt && <button style={S.ghost} onClick={() => { setDumpTxt(''); setDumpRes(null); }}>Clear</button>}</div>{dumpRes && (<div style={{ marginTop: 10 }}><span style={S.lbl}>{dumpRes.length} tasks sorted</span>{dumpRes.map((item, i) => { const q = QUADS.find(q => q.id === item.quadrant); const col = bizColors[item.biz] || C.textDim; return (<div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 0', borderBottom: '1px solid ' + C.border }}><span style={{ flex: 1, fontSize: 14 }}>{item.text}</span><span style={{ ...S.pill(col), marginLeft: 0 }}>{item.biz}</span>{q && <span style={{ ...S.pill(q.color), marginLeft: 0 }}>{q.label}</span>}</div>); })}<div style={{ display: 'flex', gap: 8, marginTop: 10 }}><button style={S.btn(C.green)} onClick={acceptDump}>Add all to tasks →</button><button style={S.ghost} onClick={() => setDumpRes(null)}>Discard</button></div></div>)}</div></div><div>{topTask ? (
                     <div style={{ ...S.card, border: '1px solid #2A1A4A', background: 'linear-gradient(135deg,#13102A,#160E24)' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
                         <span style={{ ...S.lbl, color: C.purple, marginBottom: 0 }}>Start here</span>
@@ -538,7 +538,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
               onFocus={startFocus} />
           )}
 
-          {tab === 'dump' && (
+          {false && (
             <div style={{ width: '100%' }}>
               <div style={S.card}>
                 <span style={S.lbl}>Brain dump</span>
@@ -572,7 +572,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
             </div>
           )}
 
-          {tab === 'matrix' && (
+          {false && (
             <div style={{ width: '100%' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 10 }}>
                 {QUADS.map(q => {
@@ -818,7 +818,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
 </div>
         {isMobile && (
           <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, height: 60, background: C.sidebar, borderTop: '1px solid ' + C.border, display: 'flex', alignItems: 'center', justifyContent: 'space-around', padding: '0 4px', zIndex: 100 }}>
-            {NAV.slice(0, 10).map(n => (
+            {NAV.slice(0, 8).map(n => (
               <button key={n.id} onClick={() => setTab(n.id)}
                 style={{ background: 'none', border: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, padding: '6px 4px', cursor: 'pointer', flex: 1, color: tab === n.id ? C.purple : C.textFaint }}>
                 <span style={{ fontSize: 16 }}>{n.icon}</span>
