@@ -451,7 +451,7 @@ const system = buildCoachSystem(bizA, bizB, tasks, wins, focusStats, delegations
                     )}
                   </div>
 
-                  <div style={{ ...S.card, marginTop: 9 }}><span style={S.lbl}>Brain dump</span><div style={{ fontSize: 12, color: C.textDim, marginBottom: 8, lineHeight: 1.5 }}>Get everything out. One item per line.</div><textarea style={{ ...S.ta, minHeight: 100 }} placeholder={'Call back Sarah
+                  <div style={{ ...S.card, marginTop: 9 }}><span style={S.lbl}>Brain dump</span><div style={{ fontSize: 12, color: C.textDim, marginBottom: 8, lineHeight: 1.5 }}>Get everything out. One item per line.</div><textarea style={{ ...S.ta, minHeight: 100 }} placeholder='Call back Sarah, fix bug, book dentist...'
 
 value={dumpTxt} onChange={e => setDumpTxt(e.target.value)} /><div style={{ display: 'flex', gap: 8, marginTop: 8 }}><button style={S.btn(C.red)} onClick={runDump}>Sort it all out</button>{dumpTxt && <button style={S.ghost} onClick={() => { setDumpTxt(''); setDumpRes(null); }}>Clear</button>}</div>{dumpRes && (<div style={{ marginTop: 10 }}><span style={S.lbl}>{dumpRes.length} tasks sorted</span>{dumpRes.map((item, i) => { const q = QUADS.find(q => q.id === item.quadrant); const col = bizColors[item.biz] || C.textDim; return (<div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 0', borderBottom: '1px solid ' + C.border }}><span style={{ flex: 1, fontSize: 14 }}>{item.text}</span><span style={{ ...S.pill(col), marginLeft: 0 }}>{item.biz}</span>{q && <span style={{ ...S.pill(q.color), marginLeft: 0 }}>{q.label}</span>}</div>); })}<div style={{ display: 'flex', gap: 8, marginTop: 10 }}><button style={S.btn(C.green)} onClick={acceptDump}>Add all to tasks →</button><button style={S.ghost} onClick={() => setDumpRes(null)}>Discard</button></div></div>)}</div></div><div>{topTask ? (
                     <div style={{ ...S.card, border: '1px solid #2A1A4A', background: 'linear-gradient(135deg,#13102A,#160E24)' }}>
@@ -543,7 +543,7 @@ value={dumpTxt} onChange={e => setDumpTxt(e.target.value)} /><div style={{ displ
               <div style={S.card}>
                 <span style={S.lbl}>Brain dump</span>
                 <div style={{ fontSize: 13, color: C.textDim, marginBottom: 10, lineHeight: 1.5 }}>Get everything out. One item per line. It sorts automatically.</div>
-                <textarea style={{ ...S.ta, minHeight: 160 }} placeholder={'Call back Sarah\n\nBook dentist\nThrowdown flyers...'} value={dumpTxt} onChange={e => setDumpTxt(e.target.value)} />
+                <textarea style={{ ...S.ta, minHeight: 160 }} placeholder='Call back Sarah, fix bug, book dentist...'\n\nBook dentist\nThrowdown flyers...'} value={dumpTxt} onChange={e => setDumpTxt(e.target.value)} />
                 <div style={{ display: 'flex', gap: 8, marginTop: 10 }}>
                   <button style={S.btn(C.red)} onClick={runDump}>Sort it all out</button>
                   {dumpTxt && <button style={S.ghost} onClick={() => { setDumpTxt(''); setDumpRes(null); }}>Clear</button>}
