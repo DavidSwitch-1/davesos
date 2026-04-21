@@ -543,7 +543,7 @@ value={dumpTxt} onChange={e => setDumpTxt(e.target.value)} /><div style={{ displ
               <div style={S.card}>
                 <span style={S.lbl}>Brain dump</span>
                 <div style={{ fontSize: 13, color: C.textDim, marginBottom: 10, lineHeight: 1.5 }}>Get everything out. One item per line. It sorts automatically.</div>
-                <textarea style={{ ...S.ta, minHeight: 160 }} placeholder='Call back Sarah, fix bug, book dentist...'\n\nBook dentist\nThrowdown flyers...'} value={dumpTxt} onChange={e => setDumpTxt(e.target.value)} />
+                <textarea style={{ ...S.ta, minHeight: 160 }} placeholder='Call back Sarah, fix bug, book dentist...\n\nBook dentist\nThrowdown flyers...'} value={dumpTxt} onChange={e => setDumpTxt(e.target.value)} />
                 <div style={{ display: 'flex', gap: 8, marginTop: 10 }}>
                   <button style={S.btn(C.red)} onClick={runDump}>Sort it all out</button>
                   {dumpTxt && <button style={S.ghost} onClick={() => { setDumpTxt(''); setDumpRes(null); }}>Clear</button>}
